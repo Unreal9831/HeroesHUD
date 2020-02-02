@@ -62,6 +62,26 @@ public class Proekt_new extends JFrame{
         }
     }
     
+    public JButton knopki_obrabotka(JButton butt, Image image){
+    butt.setOpaque(false);
+    butt.setContentAreaFilled(false);
+    butt.setIcon(new ImageIcon(image));
+    butt.setPreferredSize(new Dimension(35,35));
+    butt.setFocusPainted(false);
+    butt.setBorderPainted(false);
+    return butt;
+    }
+    
+    public JTextField text_obrabotka(JTextField field){
+    Color c1 = new Color(140,70,20);
+    field.setFont(new Font("Dialog", Font.PLAIN, 24));
+    field.setOpaque(false);
+    field.setBorder(new CompoundBorder( // sets two borders РАМКА
+    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
+    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+    field.setForeground(Color.WHITE);
+    return field;
+    }
     
     class TableMouseListener implements MouseListener{
 
@@ -492,7 +512,7 @@ public class Proekt_new extends JFrame{
         SimpleAction2() {
         }
             public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
+            JButton btn = (JButton) e.getSource(); 
             String a = ".\\Source\\arts\\Armageddon.png";
             String b = ".\\Source\\arts\\Armageddon1.png";
             knopki(btn, a, b, i);
@@ -596,8 +616,6 @@ public class Proekt_new extends JFrame{
     
     public void initFrame() throws IOException{
        setSize(1230,150);
-       int x = getWidth();
-        JButton button = new JButton();
         JPanel panel = new JPanel(){// Переопределение метода, чтобы поставить картинку на фон
             @Override
             public void paintComponent(Graphics page){
@@ -613,18 +631,13 @@ public class Proekt_new extends JFrame{
     
             }
         };
-        JPanel panel2 = new JPanel();
-        JPanel panel4 = new JPanel();
-        JPanel panel5 = new JPanel();
-        JPanel panel6 = new JPanel();
-        JPanel panel7 = new JPanel();
-        JPanel panel8 = new JPanel();
+        JPanel panel2 = new JPanel(); 
+        JPanel panel4 = new JPanel(); // панель кнопок
+        JPanel panel6 = new JPanel(); // текстовая панель
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setVisible(true);
     setTitle("Heroes HUD");
     panel.setSize(1230, 150);
-    BufferedImage myPicturePanel = ImageIO.read(new File(".\\Source\\test\\Basic_Water_Magic.png"));
-    Image repicPanel = myPicturePanel.getScaledInstance(90, 90, 70);
     Color c1 = new Color(140,70,20);
     panel.setBackground(c1);
     panel4.setPreferredSize(new Dimension(220,90));
@@ -654,75 +667,25 @@ public class Proekt_new extends JFrame{
     //КОНЕЦ НАЧАЛЬНЫХ КНОПОК
     //НАЧАЛО КОНЕЧНЫХ КНОПОК
     JButton button1 = new JButton(new SimpleAction());
-    button1.setOpaque(false);
-    button1.setContentAreaFilled(false);
-    button1.setIcon(new ImageIcon(repic1));
-    button1.setPreferredSize(new Dimension(35,35));
-    button1.setFocusPainted(false);
-    button1.setBorderPainted(false);
+    button1=knopki_obrabotka(button1, repic1);
     JButton button2 = new JButton(new SimpleAction1());
-    button2.setOpaque(false);
-    button2.setContentAreaFilled(false);
-    button2.setIcon(new ImageIcon(repic2));
-    button2.setPreferredSize(new Dimension(35,35));
-    button2.setFocusPainted(false);
-    button2.setBorderPainted(false);
+    button2=knopki_obrabotka(button2, repic2);
     JButton button3 = new JButton(new SimpleAction2());
-    button3.setOpaque(false);
-    button3.setContentAreaFilled(false);
-    button3.setIcon(new ImageIcon(repic3));
-    button3.setPreferredSize(new Dimension(35,35));
-    button3.setFocusPainted(false);
-    button3.setBorderPainted(false);
+    button3=knopki_obrabotka(button3, repic3);
     JButton button4 = new JButton(new SimpleAction3());
-    button4.setOpaque(false);
-    button4.setContentAreaFilled(false);
-    button4.setIcon(new ImageIcon(repic4));
-    button4.setPreferredSize(new Dimension(35,35));
-    button4.setFocusPainted(false);
-    button4.setBorderPainted(false);
+    button4=knopki_obrabotka(button4, repic4);
     JButton button5 = new JButton(new SimpleAction4());
-    button5.setOpaque(false);
-    button5.setContentAreaFilled(false);
-    button5.setIcon(new ImageIcon(repic5));
-    button5.setPreferredSize(new Dimension(35,35));
-    button5.setFocusPainted(false);
-    button5.setBorderPainted(false);
+    button5=knopki_obrabotka(button5, repic5);
     JButton button6 = new JButton(new SimpleAction5());
-    button6.setOpaque(false);
-    button6.setContentAreaFilled(false);
-    button6.setIcon(new ImageIcon(repic6));
-    button6.setPreferredSize(new Dimension(35,35));
-    button6.setFocusPainted(false);
-    button6.setBorderPainted(false);
+    button6=knopki_obrabotka(button6, repic6);
     JButton button7 = new JButton(new SimpleAction6());
-    button7.setOpaque(false);
-    button7.setContentAreaFilled(false);
-    button7.setIcon(new ImageIcon(repic7));
-    button7.setPreferredSize(new Dimension(35,35));
-    button7.setFocusPainted(false);
-    button7.setBorderPainted(false);
+    button7=knopki_obrabotka(button7, repic7);
     JButton button8 = new JButton(new SimpleAction7());
-    button8.setOpaque(false);
-    button8.setContentAreaFilled(false);
-    button8.setIcon(new ImageIcon(repic8));
-    button8.setPreferredSize(new Dimension(35,35));
-    button8.setFocusPainted(false);
-    button8.setBorderPainted(false);
+    button8=knopki_obrabotka(button8, repic8);
     JButton button9 = new JButton(new SimpleAction8());
-    button9.setOpaque(false);
-    button9.setContentAreaFilled(false);
-    button9.setIcon(new ImageIcon(repic9));
-    button9.setPreferredSize(new Dimension(35,35));
-    button9.setFocusPainted(false);
-    button9.setBorderPainted(false);
+    button9=knopki_obrabotka(button9, repic9);
     JButton button10 = new JButton(new SimpleAction9());
-    button10.setOpaque(false);
-    button10.setContentAreaFilled(false);
-    button10.setIcon(new ImageIcon(repic10));
-    button10.setPreferredSize(new Dimension(35,35));
-    button10.setFocusPainted(false);
-    button10.setBorderPainted(false);
+    button10=knopki_obrabotka(button10, repic10);
     
     panel4.add(button1);
     panel4.add(button2);
@@ -763,55 +726,25 @@ public class Proekt_new extends JFrame{
     panel6.setPreferredSize(new Dimension(350,90));
     panel.add(panel6);
     JTextField Field1 = new JTextField(7);
-    Field1.setFont(new Font("Dialog", Font.PLAIN, 24));
-    Field1.setOpaque(false);
-    Field1.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    Field1.setForeground(Color.WHITE);
+    Field1=text_obrabotka(Field1);
     panel6.add(Field1);
     JTextField Field2 = new JTextField(2);
-    Field2.setFont(new Font("Dialog", Font.PLAIN, 24));
-    Field2.setOpaque(false);
-    Field2.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    Field2.setForeground(Color.WHITE);
+    Field2=text_obrabotka(Field2);
     Field2.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field2);
     JTextField Field3 = new JTextField(7);
-    Field3.setFont(new Font("Dialog", Font.PLAIN, 24));
-    Field3.setOpaque(false);
-    Field3.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    Field3.setForeground(Color.WHITE);
+    Field3=text_obrabotka(Field3);
     Field3.setHorizontalAlignment(JTextField.RIGHT);
     panel6.add(Field3);
     JTextField Field4 = new JTextField(4);
-    Field4.setFont(new Font("Dialog", Font.PLAIN, 24));
-    Field4.setOpaque(false);
-    Field4.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    Field4.setForeground(Color.WHITE);
+    Field4=text_obrabotka(Field4);
     panel6.add(Field4);
     JTextField Field5 = new JTextField(8);
-    Field5.setFont(new Font("Dialog", Font.PLAIN, 24));
-    Field5.setOpaque(false);
-    Field5.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    Field5.setForeground(Color.WHITE);
+    Field5=text_obrabotka(Field5);
     Field5.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field5);
     JTextField Field6 = new JTextField(4);
-    Field6.setFont(new Font("Dialog", Font.PLAIN, 24));
-    Field6.setOpaque(false);
-    Field6.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    Field6.setForeground(Color.WHITE);
+    Field6=text_obrabotka(Field6);
     Field6.setHorizontalAlignment(JTextField.RIGHT);
     panel6.add(Field6);
     //ТЕКСТОВЫЕ ПОЛЯ КОНЕЦ
@@ -838,81 +771,31 @@ public class Proekt_new extends JFrame{
     //LABEL ГЕРОЯ КОНЕЦ
     
     //НАЧАЛО КНОПОК
-    JPanel panel9 = new JPanel();
+    JPanel panel9 = new JPanel(); // панель кнопок
     panel9.setPreferredSize(new Dimension(220,90));
     panel.add(panel9);
     panel9.setOpaque(false);
     
     JButton button1a = new JButton(new SimpleAction());
-    button1a.setOpaque(false);
-    button1a.setContentAreaFilled(false);
-    button1a.setIcon(new ImageIcon(repic1));
-    button1a.setPreferredSize(new Dimension(35,35));
-    button1a.setFocusPainted(false);
-    button1a.setBorderPainted(false);
+    button1a=knopki_obrabotka(button1a, repic1);
     JButton button2a = new JButton(new SimpleAction1());
-    button2a.setOpaque(false);
-    button2a.setContentAreaFilled(false);
-    button2a.setIcon(new ImageIcon(repic2));
-    button2a.setPreferredSize(new Dimension(35,35));
-    button2a.setFocusPainted(false);
-    button2a.setBorderPainted(false);
+    button2a=knopki_obrabotka(button2a, repic2);
     JButton button3a = new JButton(new SimpleAction2());
-    button3a.setOpaque(false);
-    button3a.setContentAreaFilled(false);
-    button3a.setIcon(new ImageIcon(repic3));
-    button3a.setPreferredSize(new Dimension(35,35));
-    button3a.setFocusPainted(false);
-    button3a.setBorderPainted(false);
+    button3a=knopki_obrabotka(button3a, repic3);
     JButton button4a = new JButton(new SimpleAction3());
-    button4a.setOpaque(false);
-    button4a.setContentAreaFilled(false);
-    button4a.setIcon(new ImageIcon(repic4));
-    button4a.setPreferredSize(new Dimension(35,35));
-    button4a.setFocusPainted(false);
-    button4a.setBorderPainted(false);
+    button4a=knopki_obrabotka(button4a, repic4);
     JButton button5a = new JButton(new SimpleAction4());
-    button5a.setOpaque(false);
-    button5a.setContentAreaFilled(false);
-    button5a.setIcon(new ImageIcon(repic5));
-    button5a.setPreferredSize(new Dimension(35,35));
-    button5a.setFocusPainted(false);
-    button5a.setBorderPainted(false);
+    button5a=knopki_obrabotka(button5a, repic5);
     JButton button6a = new JButton(new SimpleAction5());
-    button6a.setOpaque(false);
-    button6a.setContentAreaFilled(false);
-    button6a.setIcon(new ImageIcon(repic6));
-    button6a.setPreferredSize(new Dimension(35,35));
-    button6a.setFocusPainted(false);
-    button6a.setBorderPainted(false);
+    button6a=knopki_obrabotka(button6a, repic6);
     JButton button7a = new JButton(new SimpleAction6());
-    button7a.setOpaque(false);
-    button7a.setContentAreaFilled(false);
-    button7a.setIcon(new ImageIcon(repic7));
-    button7a.setPreferredSize(new Dimension(35,35));
-    button7a.setFocusPainted(false);
-    button7a.setBorderPainted(false);
+    button7a=knopki_obrabotka(button7a, repic7);
     JButton button8a = new JButton(new SimpleAction7());
-    button8a.setOpaque(false);
-    button8a.setContentAreaFilled(false);
-    button8a.setIcon(new ImageIcon(repic8));
-    button8a.setPreferredSize(new Dimension(35,35));
-    button8a.setFocusPainted(false);
-    button8a.setBorderPainted(false);
+    button8a=knopki_obrabotka(button8a, repic8);
     JButton button9a = new JButton(new SimpleAction8());
-    button9a.setOpaque(false);
-    button9a.setContentAreaFilled(false);
-    button9a.setIcon(new ImageIcon(repic9));
-    button9a.setPreferredSize(new Dimension(35,35));
-    button9a.setFocusPainted(false);
-    button9a.setBorderPainted(false);
+    button9a=knopki_obrabotka(button9a, repic9);
     JButton button10a = new JButton(new SimpleAction9());
-    button10a.setOpaque(false);
-    button10a.setContentAreaFilled(false);
-    button10a.setIcon(new ImageIcon(repic10));
-    button10a.setPreferredSize(new Dimension(35,35));
-    button10a.setFocusPainted(false);
-    button10a.setBorderPainted(false);
+    button10a=knopki_obrabotka(button10a, repic10);
     
     panel9.add(button1a);
     panel9.add(button2a);
