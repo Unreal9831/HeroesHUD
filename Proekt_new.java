@@ -360,11 +360,11 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Arlach", 2, 0);
         table.setValueAt("Dace", 3, 0);
         table.setValueAt("Damacon", 4, 0);
-        table.setValueAt("Darkstorm", 5, 0);
+        table.setValueAt("Darkstorn", 5, 0);
         table.setValueAt("Deemer", 6, 0);
         table.setValueAt("Geon", 7, 0);
         table.setValueAt("Gunnar", 0, 1);
-        table.setValueAt("Jaedar", 1, 1);
+        table.setValueAt("Jaegar", 1, 1);
         table.setValueAt("Jeddite", 2, 1);
         table.setValueAt("Lorelei", 3, 1);
         table.setValueAt("Malekith", 4, 1);
@@ -610,12 +610,72 @@ public class Proekt_new extends JFrame{
             i++;  
         }
     }
+        
+        class SimpleAction10 extends AbstractAction {
+
+        int i = 0;
+
+        SimpleAction10() {
+        }
+            public void actionPerformed(ActionEvent e) {
+            JButton btn = (JButton) e.getSource();
+            String a = ".\\Source\\arts\\Alliance.png";
+            String b = ".\\Source\\arts\\Alliance1.png";
+            knopki(btn, a, b, i);
+            i++;
+        }
+    }
+        
+        class SimpleAction11 extends AbstractAction {
+
+        int i = 0;
+
+        SimpleAction11() {
+        }
+            public void actionPerformed(ActionEvent e) {
+            JButton btn = (JButton) e.getSource();
+            String a = ".\\Source\\arts\\AotD.png";
+            String b = ".\\Source\\arts\\AotD1.png";
+            knopki(btn, a, b, i);
+            i++;
+        }
+    }
+        
+        class SimpleAction12 extends AbstractAction {
+
+        int i = 0;
+
+        SimpleAction12() {
+        }
+            public void actionPerformed(ActionEvent e) {
+            JButton btn = (JButton) e.getSource();
+            String a = ".\\Source\\arts\\Shackles.png";
+            String b = ".\\Source\\arts\\Shackles1.png";
+            knopki(btn, a, b, i);
+            i++;
+        }
+    }
+        
+        class SimpleAction13 extends AbstractAction {
+
+        int i = 0;
+
+        SimpleAction13() {
+        }
+            public void actionPerformed(ActionEvent e) {
+            JButton btn = (JButton) e.getSource();
+            String a = ".\\Source\\arts\\Ogre_Fist.png";
+            String b = ".\\Source\\arts\\Ogre_Fist1.png";
+            knopki(btn, a, b, i);
+            i++;
+        }
+    }
     
     //КОНЕЦ КНОПОК
     
     
     public void initFrame() throws IOException{
-       setSize(1230,150);
+       setSize(1380,150);
         JPanel panel = new JPanel(){// Переопределение метода, чтобы поставить картинку на фон
             @Override
             public void paintComponent(Graphics page){
@@ -623,7 +683,7 @@ public class Proekt_new extends JFrame{
             BufferedImage img;
                 try {
                     img = ImageIO.read(new File(".\\Source\\test\\fon2.png"));
-                    Image repicPanel = img.getScaledInstance(1220, 130, 100);
+                    Image repicPanel = img.getScaledInstance(1380, 130, 100);
                     page.drawImage(repicPanel, 0, 0, null);
                 } catch (IOException ex) {
 //                    Logger.getLogger(Proekt_new.class.getName()).log(Level.SEVERE, null, ex);
@@ -637,10 +697,10 @@ public class Proekt_new extends JFrame{
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setVisible(true);
     setTitle("Heroes HUD");
-    panel.setSize(1230, 150);
+    panel.setSize(1380, 150);
     Color c1 = new Color(140,70,20);
     panel.setBackground(c1);
-    panel4.setPreferredSize(new Dimension(220,90));
+    panel4.setPreferredSize(new Dimension(290,90));
     panel.add(panel4);
     panel4.setOpaque(false); //прозрачность
     //НАЧАЛЬНЫЕ КНОПК
@@ -664,6 +724,14 @@ public class Proekt_new extends JFrame{
     Image repic9 = myPicture9.getScaledInstance(40, 40, 40);
     BufferedImage myPicture10 = ImageIO.read(new File(".\\Source\\arts\\Fire_book1.png"));
     Image repic10 = myPicture10.getScaledInstance(40, 40, 40);
+    BufferedImage myPicture11 = ImageIO.read(new File(".\\Source\\arts\\Alliance1.png"));
+    Image repic11 = myPicture11.getScaledInstance(40, 40, 40);
+    BufferedImage myPicture12 = ImageIO.read(new File(".\\Source\\arts\\AotD1.png"));
+    Image repic12 = myPicture12.getScaledInstance(40, 40, 40);
+    BufferedImage myPicture13 = ImageIO.read(new File(".\\Source\\arts\\Shackles1.png"));
+    Image repic13 = myPicture13.getScaledInstance(40, 40, 40);
+    BufferedImage myPicture14 = ImageIO.read(new File(".\\Source\\arts\\Ogre_Fist1.png"));
+    Image repic14 = myPicture14.getScaledInstance(40, 40, 40);
     //КОНЕЦ НАЧАЛЬНЫХ КНОПОК
     //НАЧАЛО КОНЕЧНЫХ КНОПОК
     JButton button1 = new JButton(new SimpleAction());
@@ -686,17 +754,29 @@ public class Proekt_new extends JFrame{
     button9=knopki_obrabotka(button9, repic9);
     JButton button10 = new JButton(new SimpleAction9());
     button10=knopki_obrabotka(button10, repic10);
+    JButton button11 = new JButton(new SimpleAction10());
+    button11=knopki_obrabotka(button11, repic11);
+    JButton button12 = new JButton(new SimpleAction11());
+    button12=knopki_obrabotka(button12, repic12);
+    JButton button13 = new JButton(new SimpleAction12());
+    button13=knopki_obrabotka(button13, repic13);
+    JButton button14 = new JButton(new SimpleAction13());
+    button14=knopki_obrabotka(button14, repic14);
     
     panel4.add(button1);
     panel4.add(button2);
     panel4.add(button3);
     panel4.add(button4);
     panel4.add(button5);
+    panel4.add(button11);
+    panel4.add(button12);
     panel4.add(button6);
     panel4.add(button7);
     panel4.add(button8);
     panel4.add(button9);
     panel4.add(button10);
+    panel4.add(button13);
+    panel4.add(button14);
     //КОНЕЦ КОНЕЧНЫХ КНОПОК
     
     //LABEL ГЕРОЯ
@@ -772,7 +852,7 @@ public class Proekt_new extends JFrame{
     
     //НАЧАЛО КНОПОК
     JPanel panel9 = new JPanel(); // панель кнопок
-    panel9.setPreferredSize(new Dimension(220,90));
+    panel9.setPreferredSize(new Dimension(290,90));
     panel.add(panel9);
     panel9.setOpaque(false);
     
@@ -796,17 +876,29 @@ public class Proekt_new extends JFrame{
     button9a=knopki_obrabotka(button9a, repic9);
     JButton button10a = new JButton(new SimpleAction9());
     button10a=knopki_obrabotka(button10a, repic10);
+    JButton button11a = new JButton(new SimpleAction10());
+    button11a=knopki_obrabotka(button11a, repic11);
+    JButton button12a = new JButton(new SimpleAction11());
+    button12a=knopki_obrabotka(button12a, repic12);
+    JButton button13a = new JButton(new SimpleAction12());
+    button13a=knopki_obrabotka(button13a, repic13);
+    JButton button14a = new JButton(new SimpleAction13());
+    button14a=knopki_obrabotka(button14a, repic14);
     
     panel9.add(button1a);
     panel9.add(button2a);
     panel9.add(button3a);
     panel9.add(button4a);
     panel9.add(button5a);
+    panel9.add(button11a);
+    panel9.add(button12a);
     panel9.add(button6a);
     panel9.add(button7a);
     panel9.add(button8a);
     panel9.add(button9a);
     panel9.add(button10a);
+    panel9.add(button13a);
+    panel9.add(button14a);
     //КОНЕЦ КНОПОК
     
     getContentPane().add(panel);

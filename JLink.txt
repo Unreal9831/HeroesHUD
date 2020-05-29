@@ -1,0 +1,4 @@
+set path=C:\Program Files\Java\jdk-11.0.4\bin
+javac -d build\mods\com.example module-info.java newpackage\Proekt_new.java
+jar --create --file=build\libs\com.example.jar --main-class=newpackage.Proekt_new -C build\mods\com.example .
+jlink --module-path build\mods --add-modules newmodule --output build\app\example --launcher start=newmodule/newpackage.Proekt_new --compress=2 --no-header-files --no-man-pages --strip-debug
