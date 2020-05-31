@@ -477,200 +477,26 @@ public class Proekt_new extends JFrame{
     }
     //КОНЕЦ ВЫБОРА ГЕРОЕВ
     
-    
+ 
     //КНОПК
     class SimpleAction extends AbstractAction {
-
+        
         int i = 0;
-
-        SimpleAction() {
+        String active;
+        String nonactive;
+        
+        SimpleAction(String active, String nonactive) {
+            this.active = active;
+            this.nonactive = nonactive;
         }
             public void actionPerformed(ActionEvent e) {
             JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Resurrection.png";
-            String b = ".\\Source\\arts\\Resurrection1.png";
+            String a = ".\\Source\\arts\\" + active + ".png";
+            String b = ".\\Source\\arts\\" + nonactive + ".png";
             knopki(btn, a, b, i);
             i++;
         }
     }
-    
-    class SimpleAction1 extends AbstractAction {
-        int i =0;
-        SimpleAction1() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\DD.png";
-            String b = ".\\Source\\arts\\DD1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-    
-        class SimpleAction2 extends AbstractAction {
-        int i =0;
-        SimpleAction2() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource(); 
-            String a = ".\\Source\\arts\\Armageddon.png";
-            String b = ".\\Source\\arts\\Armageddon1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-        
-        class SimpleAction3 extends AbstractAction {
-        int i =0;
-        SimpleAction3() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Fly.png";
-            String b = ".\\Source\\arts\\Fly1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-            
-        class SimpleAction4 extends AbstractAction {
-        int i =0;
-        SimpleAction4() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\TP.png";
-            String b = ".\\Source\\arts\\TP1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-                
-        class SimpleAction5 extends AbstractAction {
-        int i =0;
-        SimpleAction5() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Wings.png";
-            String b = ".\\Source\\arts\\Wings1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-                    
-        class SimpleAction6 extends AbstractAction {
-        int i =0;
-        SimpleAction6() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Hat.png";
-            String b = ".\\Source\\arts\\Hat1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-                        
-        class SimpleAction7 extends AbstractAction {
-        int i =0;
-        SimpleAction7() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Air_Book.png";
-            String b = ".\\Source\\arts\\Air_Book1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-                            
-        class SimpleAction8 extends AbstractAction {
-        int i =0;
-        SimpleAction8() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Earth_Book.png";
-            String b = ".\\Source\\arts\\Earth_Book1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-                                
-        class SimpleAction9 extends AbstractAction {
-        int i =0;
-        SimpleAction9() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Fire_Book.png";
-            String b = ".\\Source\\arts\\Fire_Book1.png";
-            knopki(btn, a, b, i);
-            i++;  
-        }
-    }
-        
-        class SimpleAction10 extends AbstractAction {
-
-        int i = 0;
-
-        SimpleAction10() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Alliance.png";
-            String b = ".\\Source\\arts\\Alliance1.png";
-            knopki(btn, a, b, i);
-            i++;
-        }
-    }
-        
-        class SimpleAction11 extends AbstractAction {
-
-        int i = 0;
-
-        SimpleAction11() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\AotD.png";
-            String b = ".\\Source\\arts\\AotD1.png";
-            knopki(btn, a, b, i);
-            i++;
-        }
-    }
-        
-        class SimpleAction12 extends AbstractAction {
-
-        int i = 0;
-
-        SimpleAction12() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Shackles.png";
-            String b = ".\\Source\\arts\\Shackles1.png";
-            knopki(btn, a, b, i);
-            i++;
-        }
-    }
-        
-        class SimpleAction13 extends AbstractAction {
-
-        int i = 0;
-
-        SimpleAction13() {
-        }
-            public void actionPerformed(ActionEvent e) {
-            JButton btn = (JButton) e.getSource();
-            String a = ".\\Source\\arts\\Ogre_Fist.png";
-            String b = ".\\Source\\arts\\Ogre_Fist1.png";
-            knopki(btn, a, b, i);
-            i++;
-        }
-    }
-    
     //КОНЕЦ КНОПОК
     
     
@@ -734,33 +560,33 @@ public class Proekt_new extends JFrame{
     Image repic14 = myPicture14.getScaledInstance(40, 40, 40);
     //КОНЕЦ НАЧАЛЬНЫХ КНОПОК
     //НАЧАЛО КОНЕЧНЫХ КНОПОК
-    JButton button1 = new JButton(new SimpleAction());
+    JButton button1 = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
     button1=knopki_obrabotka(button1, repic1);
-    JButton button2 = new JButton(new SimpleAction1());
+    JButton button2 = new JButton(new SimpleAction("DD", "DD1"));
     button2=knopki_obrabotka(button2, repic2);
-    JButton button3 = new JButton(new SimpleAction2());
+    JButton button3 = new JButton(new SimpleAction("Armageddon", "Armageddon1"));
     button3=knopki_obrabotka(button3, repic3);
-    JButton button4 = new JButton(new SimpleAction3());
+    JButton button4 = new JButton(new SimpleAction("Fly", "Fly1"));
     button4=knopki_obrabotka(button4, repic4);
-    JButton button5 = new JButton(new SimpleAction4());
+    JButton button5 = new JButton(new SimpleAction("TP", "TP1"));
     button5=knopki_obrabotka(button5, repic5);
-    JButton button6 = new JButton(new SimpleAction5());
+    JButton button6 = new JButton(new SimpleAction("Wings", "Wings1"));
     button6=knopki_obrabotka(button6, repic6);
-    JButton button7 = new JButton(new SimpleAction6());
+    JButton button7 = new JButton(new SimpleAction("Hat", "Hat1"));
     button7=knopki_obrabotka(button7, repic7);
-    JButton button8 = new JButton(new SimpleAction7());
+    JButton button8 = new JButton(new SimpleAction("Air_book", "Air_book1"));
     button8=knopki_obrabotka(button8, repic8);
-    JButton button9 = new JButton(new SimpleAction8());
+    JButton button9 = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
     button9=knopki_obrabotka(button9, repic9);
-    JButton button10 = new JButton(new SimpleAction9());
+    JButton button10 = new JButton(new SimpleAction("Fire_book", "Fire_book1"));
     button10=knopki_obrabotka(button10, repic10);
-    JButton button11 = new JButton(new SimpleAction10());
+    JButton button11 = new JButton(new SimpleAction("Alliance", "Alliance1"));
     button11=knopki_obrabotka(button11, repic11);
-    JButton button12 = new JButton(new SimpleAction11());
+    JButton button12 = new JButton(new SimpleAction("AotD", "AotD1"));
     button12=knopki_obrabotka(button12, repic12);
-    JButton button13 = new JButton(new SimpleAction12());
+    JButton button13 = new JButton(new SimpleAction("Shackles", "Shackles1"));
     button13=knopki_obrabotka(button13, repic13);
-    JButton button14 = new JButton(new SimpleAction13());
+    JButton button14 = new JButton(new SimpleAction("Ogre_Fist", "Ogre_Fist1"));
     button14=knopki_obrabotka(button14, repic14);
     
     panel4.add(button1);
@@ -856,33 +682,33 @@ public class Proekt_new extends JFrame{
     panel.add(panel9);
     panel9.setOpaque(false);
     
-    JButton button1a = new JButton(new SimpleAction());
+    JButton button1a = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
     button1a=knopki_obrabotka(button1a, repic1);
-    JButton button2a = new JButton(new SimpleAction1());
+    JButton button2a = new JButton(new SimpleAction("DD", "DD1"));
     button2a=knopki_obrabotka(button2a, repic2);
-    JButton button3a = new JButton(new SimpleAction2());
+    JButton button3a = new JButton(new SimpleAction("Armageddon", "Armageddon1"));
     button3a=knopki_obrabotka(button3a, repic3);
-    JButton button4a = new JButton(new SimpleAction3());
+    JButton button4a = new JButton(new SimpleAction("Fly", "Fly1"));
     button4a=knopki_obrabotka(button4a, repic4);
-    JButton button5a = new JButton(new SimpleAction4());
+    JButton button5a = new JButton(new SimpleAction("TP", "TP1"));
     button5a=knopki_obrabotka(button5a, repic5);
-    JButton button6a = new JButton(new SimpleAction5());
+    JButton button6a = new JButton(new SimpleAction("Wings", "Wings1"));
     button6a=knopki_obrabotka(button6a, repic6);
-    JButton button7a = new JButton(new SimpleAction6());
+    JButton button7a = new JButton(new SimpleAction("Hat", "Hat1"));
     button7a=knopki_obrabotka(button7a, repic7);
-    JButton button8a = new JButton(new SimpleAction7());
+    JButton button8a = new JButton(new SimpleAction("Air_book", "Air_book1"));
     button8a=knopki_obrabotka(button8a, repic8);
-    JButton button9a = new JButton(new SimpleAction8());
+    JButton button9a = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
     button9a=knopki_obrabotka(button9a, repic9);
-    JButton button10a = new JButton(new SimpleAction9());
+    JButton button10a = new JButton(new SimpleAction("Fire_book", "Fire_book1"));
     button10a=knopki_obrabotka(button10a, repic10);
-    JButton button11a = new JButton(new SimpleAction10());
+    JButton button11a = new JButton(new SimpleAction("Alliance", "Alliance1"));
     button11a=knopki_obrabotka(button11a, repic11);
-    JButton button12a = new JButton(new SimpleAction11());
+    JButton button12a = new JButton(new SimpleAction("AotD", "AotD1"));
     button12a=knopki_obrabotka(button12a, repic12);
-    JButton button13a = new JButton(new SimpleAction12());
+    JButton button13a = new JButton(new SimpleAction("Shackles", "Shackles1"));
     button13a=knopki_obrabotka(button13a, repic13);
-    JButton button14a = new JButton(new SimpleAction13());
+    JButton button14a = new JButton(new SimpleAction("Ogre_Fist", "Ogre_Fist1"));
     button14a=knopki_obrabotka(button14a, repic14);
     
     panel9.add(button1a);
