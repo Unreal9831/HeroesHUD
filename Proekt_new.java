@@ -22,14 +22,13 @@ import javax.swing.event.ListSelectionListener;
 public class Proekt_new extends JFrame{
     
     Proekt_new() throws IOException{
-    initFrame();
+        initFrame();
     }
-    public int nomer = 10;
-    public int stroka;
-    public String town;
+    public int townNumber;
+    public String townName;
     
-    public Image obrabotka(String name, int width, int height){
-    BufferedImage myPicture1 = null;
+    public Image imageHandling(String name, int width, int height){
+        BufferedImage myPicture1 = null;
                 try {
                     myPicture1 = ImageIO.read(new File(".\\Source\\" + name));
                 } catch (IOException ex) {
@@ -40,7 +39,7 @@ public class Proekt_new extends JFrame{
     
     }
     
-    public void knopki(JButton butt, String on, String off, int i) {
+    public void switchButtons(JButton butt, String on, String off, int i) {
         if (i % 2 == 0) {
             BufferedImage myPicture1 = null;
             try {
@@ -62,25 +61,25 @@ public class Proekt_new extends JFrame{
         }
     }
     
-    public JButton knopki_obrabotka(JButton butt, Image image){
-    butt.setOpaque(false);
-    butt.setContentAreaFilled(false);
-    butt.setIcon(new ImageIcon(image));
-    butt.setPreferredSize(new Dimension(35,35));
-    butt.setFocusPainted(false);
-    butt.setBorderPainted(false);
-    return butt;
+    public JButton buttonHandling(JButton butt, Image image){
+        butt.setOpaque(false);
+        butt.setContentAreaFilled(false);
+        butt.setIcon(new ImageIcon(image));
+        butt.setPreferredSize(new Dimension(35,35));
+        butt.setFocusPainted(false);
+        butt.setBorderPainted(false);
+        return butt;
     }
     
-    public JTextField text_obrabotka(JTextField field){
-    Color c1 = new Color(140,70,20);
-    field.setFont(new Font("Dialog", Font.PLAIN, 24));
-    field.setOpaque(false);
-    field.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    field.setForeground(Color.WHITE);
-    return field;
+    public JTextField textHandling(JTextField field){
+        Color c1 = new Color(140,70,20);
+        field.setFont(new Font("Dialog", Font.PLAIN, 24));
+        field.setOpaque(false);
+        field.setBorder(new CompoundBorder( // sets two borders РАМКА
+        BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
+        BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+        field.setForeground(Color.WHITE);
+        return field;
     }
     
     class TableMouseListener implements MouseListener{
@@ -92,7 +91,7 @@ public class Proekt_new extends JFrame{
         @Override
         public void mousePressed(MouseEvent e) {
             JTable tbl2 = (JTable) e.getSource();
-            stroka=tbl2.getSelectedColumn();
+            townNumber=tbl2.getSelectedColumn();
             }
 
         @Override
@@ -152,65 +151,64 @@ public class Proekt_new extends JFrame{
         selectionModel.addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
-                    int tableRow = table.getSelectedRow();
                     if(0 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Castle.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Castle.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 0;
+                townNumber = 0;
                     }
                     
                     if(1 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Rampart.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Rampart.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 1;
+                townNumber = 1;
                     }
                     
                     if(2 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Tower.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Tower.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 2;
+                townNumber = 2;
                     }
                     
                     if(3 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Inferno.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Inferno.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 3;
+                townNumber = 3;
                     }
                     
                     if(4 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Necropolis.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Necropolis.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 4;
+                townNumber = 4;
                     }
                     
                     if(5 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Dungeon.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Dungeon.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 5;
+                townNumber = 5;
                     }
                     
                     if(6 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Stronghold.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Stronghold.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 6;
+                townNumber = 6;
                     }
                     
                     if(7 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Fortress.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Fortress.gif", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 7;
+                townNumber = 7;
                     }
                     
                     if(8 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Conflux.png", 90, 50);
+                Image repic1 = imageHandling("towns\\Conflux.png", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 8;
+                townNumber = 8;
                     }
                     
                     if(9 == table.getSelectedRow()){
-                Image repic1 = obrabotka("towns\\Cove.BMP", 90, 50);
+                Image repic1 = imageHandling("towns\\Cove.BMP", 90, 50);
                 lbl.setIcon(new ImageIcon(repic1));
-                stroka = 9;
+                townNumber = 9;
                     }
                     
                     
@@ -259,7 +257,7 @@ public class Proekt_new extends JFrame{
         table.addMouseListener(new TableMouseListener());
         panel10.add(table);
         ListSelectionModel selectionModel = table.getSelectionModel();
-        if(stroka ==0){
+        if(townNumber ==0){
         table.setValueAt("Adela", 0, 0);
         table.setValueAt("Adelaide", 1, 0);
         table.setValueAt("Caitlin", 2, 0);
@@ -276,9 +274,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Sylvia", 5, 1);
         table.setValueAt("Tyris", 6, 1);
         table.setValueAt("Valeska", 7, 1);
-        town="castle";
+        townName="castle";
         }
-        if(stroka ==1){
+        if(townNumber ==1){
         table.setValueAt("Aeris", 0, 0);
         table.setValueAt("Alagar", 1, 0);
         table.setValueAt("Clancy", 2, 0);
@@ -295,9 +293,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Thorgrim", 5, 1);
         table.setValueAt("Ufretin", 6, 1);
         table.setValueAt("Uland", 7, 1);
-        town="rampart";
+        townName="rampart";
         }
-        if(stroka ==2){
+        if(townNumber ==2){
         table.setValueAt("Aine", 0, 0);
         table.setValueAt("Astral", 1, 0);
         table.setValueAt("Cyra", 2, 0);
@@ -314,9 +312,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Thane", 5, 1);
         table.setValueAt("Theodorus", 6, 1);
         table.setValueAt("Torosar", 7, 1);
-        town="tower";
+        townName="tower";
         }
-        if(stroka ==3){
+        if(townNumber ==3){
         table.setValueAt("Ash", 0, 0);
         table.setValueAt("Axsis", 1, 0);
         table.setValueAt("Ayden", 2, 0);
@@ -333,9 +331,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Xarfax", 5, 1);
         table.setValueAt("Xyron", 6, 1);
         table.setValueAt("Zydar", 7, 1);
-        town="inferno";
+        townName="inferno";
         }
-        if(stroka ==4){
+        if(townNumber ==4){
         table.setValueAt("Aislinn", 0, 0);
         table.setValueAt("Charna", 1, 0);
         table.setValueAt("Clavius", 2, 0);
@@ -352,9 +350,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Vidomina", 5, 1);
         table.setValueAt("Vokial", 6, 1);
         table.setValueAt("Xsi", 7, 1);
-        town="necropolis";
+        townName="necropolis";
         }
-        if(stroka ==5){
+        if(townNumber ==5){
         table.setValueAt("Ajit", 0, 0);
         table.setValueAt("Alamar", 1, 0);
         table.setValueAt("Arlach", 2, 0);
@@ -371,9 +369,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Sephinroth", 5, 1);
         table.setValueAt("Shakti", 6, 1);
         table.setValueAt("Synca", 7, 1);
-        town="dungeon";
+        townName="dungeon";
         }
-        if(stroka ==6){
+        if(townNumber ==6){
         table.setValueAt("Crag_Hack", 0, 0);
         table.setValueAt("Dessa", 1, 0);
         table.setValueAt("Gird", 2, 0);
@@ -390,9 +388,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Vey", 5, 1);
         table.setValueAt("Yog", 6, 1);
         table.setValueAt("Zubin", 7, 1);
-        town="stronghold";
+        townName="stronghold";
         }
-        if(stroka ==7){
+        if(townNumber ==7){
         table.setValueAt("Alkin", 0, 0);
         table.setValueAt("Andra", 1, 0);
         table.setValueAt("Broghild", 2, 0);
@@ -409,9 +407,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Verdish", 5, 1);
         table.setValueAt("Voy", 6, 1);
         table.setValueAt("Wystan", 7, 1);
-        town="fortress";
+        townName="fortress";
         }
-        if(stroka ==8){
+        if(townNumber ==8){
         table.setValueAt("Aenain", 0, 0);
         table.setValueAt("Brissa", 1, 0);
         table.setValueAt("Ciele", 2, 0);
@@ -428,9 +426,9 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Monere", 5, 1);
         table.setValueAt("Pasis", 6, 1);
         table.setValueAt("Thunar", 7, 1);
-        town="conflux";
+        townName="conflux";
         }
-        if(stroka ==9){
+        if(townNumber ==9){
         table.setValueAt("Anabel", 0, 0);
         table.setValueAt("Andal", 1, 0);
         table.setValueAt("Astra", 2, 0);
@@ -447,7 +445,7 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Miriam", 5, 1);
         table.setValueAt("Spint", 6, 1);
         table.setValueAt("Zilare", 7, 1);
-        town="cove";
+        townName="cove";
         }
         
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -455,7 +453,7 @@ public class Proekt_new extends JFrame{
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 String name=(String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
-                Image repic5 = obrabotka("heroes\\" + town + "\\Hero_" + name + ".png", 80, 90);
+                Image repic5 = imageHandling("heroes\\" + townName + "\\Hero_" + name + ".png", 80, 90);
                 lbl.setIcon(new ImageIcon(repic5));
                 }
         });
@@ -493,7 +491,7 @@ public class Proekt_new extends JFrame{
             JButton btn = (JButton) e.getSource();
             String a = ".\\Source\\arts\\" + active + ".png";
             String b = ".\\Source\\arts\\" + nonactive + ".png";
-            knopki(btn, a, b, i);
+            switchButtons(btn, a, b, i);
             i++;
         }
     }
@@ -561,33 +559,33 @@ public class Proekt_new extends JFrame{
     //КОНЕЦ НАЧАЛЬНЫХ КНОПОК
     //НАЧАЛО КОНЕЧНЫХ КНОПОК
     JButton button1 = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
-    button1=knopki_obrabotka(button1, repic1);
+    button1=buttonHandling(button1, repic1);
     JButton button2 = new JButton(new SimpleAction("DD", "DD1"));
-    button2=knopki_obrabotka(button2, repic2);
+    button2=buttonHandling(button2, repic2);
     JButton button3 = new JButton(new SimpleAction("Armageddon", "Armageddon1"));
-    button3=knopki_obrabotka(button3, repic3);
+    button3=buttonHandling(button3, repic3);
     JButton button4 = new JButton(new SimpleAction("Fly", "Fly1"));
-    button4=knopki_obrabotka(button4, repic4);
+    button4=buttonHandling(button4, repic4);
     JButton button5 = new JButton(new SimpleAction("TP", "TP1"));
-    button5=knopki_obrabotka(button5, repic5);
+    button5=buttonHandling(button5, repic5);
     JButton button6 = new JButton(new SimpleAction("Wings", "Wings1"));
-    button6=knopki_obrabotka(button6, repic6);
+    button6=buttonHandling(button6, repic6);
     JButton button7 = new JButton(new SimpleAction("Hat", "Hat1"));
-    button7=knopki_obrabotka(button7, repic7);
+    button7=buttonHandling(button7, repic7);
     JButton button8 = new JButton(new SimpleAction("Air_book", "Air_book1"));
-    button8=knopki_obrabotka(button8, repic8);
+    button8=buttonHandling(button8, repic8);
     JButton button9 = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
-    button9=knopki_obrabotka(button9, repic9);
+    button9=buttonHandling(button9, repic9);
     JButton button10 = new JButton(new SimpleAction("Fire_book", "Fire_book1"));
-    button10=knopki_obrabotka(button10, repic10);
+    button10=buttonHandling(button10, repic10);
     JButton button11 = new JButton(new SimpleAction("Alliance", "Alliance1"));
-    button11=knopki_obrabotka(button11, repic11);
+    button11=buttonHandling(button11, repic11);
     JButton button12 = new JButton(new SimpleAction("AotD", "AotD1"));
-    button12=knopki_obrabotka(button12, repic12);
+    button12=buttonHandling(button12, repic12);
     JButton button13 = new JButton(new SimpleAction("Shackles", "Shackles1"));
-    button13=knopki_obrabotka(button13, repic13);
+    button13=buttonHandling(button13, repic13);
     JButton button14 = new JButton(new SimpleAction("Ogre_Fist", "Ogre_Fist1"));
-    button14=knopki_obrabotka(button14, repic14);
+    button14=buttonHandling(button14, repic14);
     
     panel4.add(button1);
     panel4.add(button2);
@@ -632,25 +630,25 @@ public class Proekt_new extends JFrame{
     panel6.setPreferredSize(new Dimension(350,90));
     panel.add(panel6);
     JTextField Field1 = new JTextField(7);
-    Field1=text_obrabotka(Field1);
+    Field1=textHandling(Field1);
     panel6.add(Field1);
     JTextField Field2 = new JTextField(2);
-    Field2=text_obrabotka(Field2);
+    Field2=textHandling(Field2);
     Field2.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field2);
     JTextField Field3 = new JTextField(7);
-    Field3=text_obrabotka(Field3);
+    Field3=textHandling(Field3);
     Field3.setHorizontalAlignment(JTextField.RIGHT);
     panel6.add(Field3);
     JTextField Field4 = new JTextField(4);
-    Field4=text_obrabotka(Field4);
+    Field4=textHandling(Field4);
     panel6.add(Field4);
     JTextField Field5 = new JTextField(8);
-    Field5=text_obrabotka(Field5);
+    Field5=textHandling(Field5);
     Field5.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field5);
     JTextField Field6 = new JTextField(4);
-    Field6=text_obrabotka(Field6);
+    Field6=textHandling(Field6);
     Field6.setHorizontalAlignment(JTextField.RIGHT);
     panel6.add(Field6);
     //ТЕКСТОВЫЕ ПОЛЯ КОНЕЦ
@@ -683,33 +681,33 @@ public class Proekt_new extends JFrame{
     panel9.setOpaque(false);
     
     JButton button1a = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
-    button1a=knopki_obrabotka(button1a, repic1);
+    button1a=buttonHandling(button1a, repic1);
     JButton button2a = new JButton(new SimpleAction("DD", "DD1"));
-    button2a=knopki_obrabotka(button2a, repic2);
+    button2a=buttonHandling(button2a, repic2);
     JButton button3a = new JButton(new SimpleAction("Armageddon", "Armageddon1"));
-    button3a=knopki_obrabotka(button3a, repic3);
+    button3a=buttonHandling(button3a, repic3);
     JButton button4a = new JButton(new SimpleAction("Fly", "Fly1"));
-    button4a=knopki_obrabotka(button4a, repic4);
+    button4a=buttonHandling(button4a, repic4);
     JButton button5a = new JButton(new SimpleAction("TP", "TP1"));
-    button5a=knopki_obrabotka(button5a, repic5);
+    button5a=buttonHandling(button5a, repic5);
     JButton button6a = new JButton(new SimpleAction("Wings", "Wings1"));
-    button6a=knopki_obrabotka(button6a, repic6);
+    button6a=buttonHandling(button6a, repic6);
     JButton button7a = new JButton(new SimpleAction("Hat", "Hat1"));
-    button7a=knopki_obrabotka(button7a, repic7);
+    button7a=buttonHandling(button7a, repic7);
     JButton button8a = new JButton(new SimpleAction("Air_book", "Air_book1"));
-    button8a=knopki_obrabotka(button8a, repic8);
+    button8a=buttonHandling(button8a, repic8);
     JButton button9a = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
-    button9a=knopki_obrabotka(button9a, repic9);
+    button9a=buttonHandling(button9a, repic9);
     JButton button10a = new JButton(new SimpleAction("Fire_book", "Fire_book1"));
-    button10a=knopki_obrabotka(button10a, repic10);
+    button10a=buttonHandling(button10a, repic10);
     JButton button11a = new JButton(new SimpleAction("Alliance", "Alliance1"));
-    button11a=knopki_obrabotka(button11a, repic11);
+    button11a=buttonHandling(button11a, repic11);
     JButton button12a = new JButton(new SimpleAction("AotD", "AotD1"));
-    button12a=knopki_obrabotka(button12a, repic12);
+    button12a=buttonHandling(button12a, repic12);
     JButton button13a = new JButton(new SimpleAction("Shackles", "Shackles1"));
-    button13a=knopki_obrabotka(button13a, repic13);
+    button13a=buttonHandling(button13a, repic13);
     JButton button14a = new JButton(new SimpleAction("Ogre_Fist", "Ogre_Fist1"));
-    button14a=knopki_obrabotka(button14a, repic14);
+    button14a=buttonHandling(button14a, repic14);
     
     panel9.add(button1a);
     panel9.add(button2a);
