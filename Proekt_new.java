@@ -81,36 +81,8 @@ public class Proekt_new extends JFrame{
         field.setForeground(Color.WHITE);
         return field;
     }
-    
-    class TableMouseListener implements MouseListener{
 
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            JTable tbl2 = (JTable) e.getSource();
-            townNumber=tbl2.getSelectedColumn();
-            }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            }
-    
-    }
-    
-    
-    
-    
+       
     class MyMouseListener implements MouseListener{
 
         @Override
@@ -141,7 +113,6 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Fortress", 7, 0);
         table.setValueAt("Conflux", 8, 0);
         table.setValueAt("Cove", 9, 0);
-        table.addMouseListener(new TableMouseListener());
         panel10.add(table);
         
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -254,7 +225,6 @@ public class Proekt_new extends JFrame{
         JPanel panel10 = new JPanel();
         jf.add(panel10);
         JTable table = new JTable(8,2);
-        table.addMouseListener(new TableMouseListener());
         panel10.add(table);
         ListSelectionModel selectionModel = table.getSelectionModel();
         if(townNumber ==0){
