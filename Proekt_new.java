@@ -2,7 +2,9 @@
 package newpackage;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -17,6 +19,7 @@ import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 
 
 public class Proekt_new extends JFrame{
@@ -230,18 +233,18 @@ public class Proekt_new extends JFrame{
         if(townNumber ==0){
         table.setValueAt("Adela", 0, 0);
         table.setValueAt("Adelaide", 1, 0);
-        table.setValueAt("Caitlin", 2, 0);
-        table.setValueAt("Christian", 3, 0);
-        table.setValueAt("Cuthbert", 4, 0);
-        table.setValueAt("Edric", 5, 0);
-        table.setValueAt("Ingham", 6, 0);
-        table.setValueAt("Lord_Haart", 7, 0);
-        table.setValueAt("Loynis", 0, 1);
-        table.setValueAt("Orrin", 1, 1);
-        table.setValueAt("Rion", 2, 1);
-        table.setValueAt("Sanya", 3, 1);
-        table.setValueAt("Sorsha", 4, 1);
-        table.setValueAt("Sylvia", 5, 1);
+        table.setValueAt("Beatrice", 2, 0);
+        table.setValueAt("Caitlin", 3, 0);
+        table.setValueAt("Christian", 4, 0);
+        table.setValueAt("Cuthbert", 5, 0);
+        table.setValueAt("Edric", 6, 0);
+        table.setValueAt("Ingham", 7, 0);
+        table.setValueAt("Lord_Haart", 0, 1);
+        table.setValueAt("Loynis", 1, 1);
+        table.setValueAt("Orrin", 2, 1);
+        table.setValueAt("Rion", 3, 1);
+        table.setValueAt("Sanya", 4, 1);
+        table.setValueAt("Sorsha", 5, 1);
         table.setValueAt("Tyris", 6, 1);
         table.setValueAt("Valeska", 7, 1);
         townName="castle";
@@ -253,14 +256,14 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Coronius", 3, 0);
         table.setValueAt("Elleshar", 4, 0);
         table.setValueAt("Gem", 5, 0);
-        table.setValueAt("Ivor", 6, 0);
-        table.setValueAt("Jenova", 7, 0);
-        table.setValueAt("Kyrre", 0, 1);
-        table.setValueAt("Malcom", 1, 1);
-        table.setValueAt("Melodia", 2, 1);
-        table.setValueAt("Mephala", 3, 1);
-        table.setValueAt("Ryland", 4, 1);
-        table.setValueAt("Thorgrim", 5, 1);
+        table.setValueAt("Giselle", 6, 0);
+        table.setValueAt("Ivor", 7, 0);
+        table.setValueAt("Jenova", 0, 1);
+        table.setValueAt("Kyrre", 1, 1);
+        table.setValueAt("Malcom", 2, 1);
+        table.setValueAt("Melodia", 3, 1);
+        table.setValueAt("Mephala", 4, 1);
+        table.setValueAt("Ryland", 5, 1);
         table.setValueAt("Ufretin", 6, 1);
         table.setValueAt("Uland", 7, 1);
         townName="rampart";
@@ -367,15 +370,15 @@ public class Proekt_new extends JFrame{
         table.setValueAt("Bron", 3, 0);
         table.setValueAt("Drakon", 4, 0);
         table.setValueAt("Gerwulf", 5, 0);
-        table.setValueAt("Korbac", 6, 0);
-        table.setValueAt("Merist", 7, 0);
-        table.setValueAt("Mirlanda", 0, 1);
-        table.setValueAt("Rosic", 1, 1);
-        table.setValueAt("Styg", 2, 1);
-        table.setValueAt("Tazar", 3, 1);
-        table.setValueAt("Tiva", 4, 1);
-        table.setValueAt("Verdish", 5, 1);
-        table.setValueAt("Voy", 6, 1);
+        table.setValueAt("Kinkeria", 6, 0);
+        table.setValueAt("Korbac", 7, 0);
+        table.setValueAt("Merist", 0, 1);
+        table.setValueAt("Mirlanda", 1, 1);
+        table.setValueAt("Rosic", 2, 1);
+        table.setValueAt("Styg", 3, 1);
+        table.setValueAt("Tazar", 4, 1);
+        table.setValueAt("Tiva", 5, 1);
+        table.setValueAt("Verdish", 6, 1);
         table.setValueAt("Wystan", 7, 1);
         townName="fortress";
         }
@@ -423,8 +426,11 @@ public class Proekt_new extends JFrame{
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 String name=(String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
-                Image repic5 = imageHandling("heroes\\" + townName + "\\Hero_" + name + ".png", 80, 90);
-                lbl.setIcon(new ImageIcon(repic5));
+                try{
+                    Image repic5 = imageHandling("heroes\\" + townName + "\\Hero_" + name + ".png", 80, 90);
+                    lbl.setIcon(new ImageIcon(repic5));
+                }
+                catch(NullPointerException exc) {}
                 }
         });
         
@@ -444,6 +450,145 @@ public class Proekt_new extends JFrame{
     
     }
     //КОНЕЦ ВЫБОРА ГЕРОЕВ
+    
+    
+    //ВЫБОР ГО
+    
+    class MyMouseListenerGO implements MouseListener{
+
+        @Override
+        public void mouseClicked(MouseEvent arg0) {
+        }
+
+        @Override
+        public void mousePressed(MouseEvent r) {
+        JLabel lbl = (JLabel) r.getSource();
+        JFrame jf = new JFrame(); 
+        jf.setSize(500, 300); 
+        jf.setVisible(true);
+        jf.setLocationRelativeTo(null);
+        JPanel panel10 = new JPanel();
+        jf.add(panel10);
+        JTable table = new JTable(14,6);
+        panel10.add(table);
+        ListSelectionModel selectionModel = table.getSelectionModel();
+        table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                final Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                c.setBackground(row % 7 == 0 ? Color.LIGHT_GRAY : Color.WHITE);
+                return c;
+            }
+        });
+        
+        table.setValueAt("Castle", 0, 0);
+        table.setValueAt("Monk", 1, 0);
+        table.setValueAt("Zealot", 2, 0);
+        table.setValueAt("Cavalier", 3, 0);
+        table.setValueAt("Champion", 4, 0);
+        table.setValueAt("Angel", 5, 0);
+        table.setValueAt("Archangel", 6, 0);
+        table.setValueAt("Rampart", 0, 1);
+        table.setValueAt("Dendroid_Guard", 1, 1);
+        table.setValueAt("Dendroid_Soldier", 2, 1);
+        table.setValueAt("Unicorn", 3, 1);
+        table.setValueAt("War_Unicorn", 4, 1);
+        table.setValueAt("Green_Dragon", 5, 1);
+        table.setValueAt("Gold_Dragon", 6, 1);
+        table.setValueAt("Tower", 0, 2);
+        table.setValueAt("Genie", 1, 2);
+        table.setValueAt("Master_Genie", 2, 2);
+        table.setValueAt("Naga", 3, 2);
+        table.setValueAt("Naga_Queen", 4, 2);
+        table.setValueAt("Giant", 5, 2);
+        table.setValueAt("Titan", 6, 2);
+        table.setValueAt("Inferno", 0, 3);
+        table.setValueAt("Pit_Fiend", 1, 3);
+        table.setValueAt("Pit_lord", 2, 3);
+        table.setValueAt("Efreet", 3, 3);
+        table.setValueAt("Efreet_Sultan", 4, 3);
+        table.setValueAt("Devil", 5, 3);
+        table.setValueAt("Arch_Devil", 6, 3);
+        table.setValueAt("Necropolis", 0, 4);
+        table.setValueAt("Lich", 1, 4);
+        table.setValueAt("Power_Lich", 2, 4);
+        table.setValueAt("Black_Knight", 3, 4);
+        table.setValueAt("Dread_Knight", 4, 4);
+        table.setValueAt("Bone_Dragon", 5, 4);
+        table.setValueAt("Ghost_Dragon", 6, 4);
+        table.setValueAt("Dungeon", 7, 0);
+        table.setValueAt("Minotaur", 8, 0);
+        table.setValueAt("Minotaur_King", 9, 0);
+        table.setValueAt("Manticore", 10, 0);
+        table.setValueAt("Scorpicore", 11, 0);
+        table.setValueAt("Red_Dragon", 12, 0);
+        table.setValueAt("Black_Dragon", 13, 0);
+        table.setValueAt("Stronghold", 7, 1);
+        table.setValueAt("Roc", 8, 1);
+        table.setValueAt("Thunderbird", 9, 1);
+        table.setValueAt("Cyclops", 10, 1);
+        table.setValueAt("Cyclops_King", 11, 1);
+        table.setValueAt("Behemoth", 12, 1);
+        table.setValueAt("Ancient_Behemoth", 13, 1);
+        table.setValueAt("Fortress", 7, 2);
+        table.setValueAt("Gorgon", 8, 2);
+        table.setValueAt("Mighty_Gorgon", 9, 2);
+        table.setValueAt("Wyvern", 10, 2);
+        table.setValueAt("Wyvern_Monarch", 11, 2);
+        table.setValueAt("Hydra", 12, 2);
+        table.setValueAt("Chaos_Hydra", 13, 2);
+        table.setValueAt("Conflux", 7, 3);
+        table.setValueAt("Earth_Elemental", 8, 3);
+        table.setValueAt("Magma_Elemental", 9, 3);
+        table.setValueAt("Psychic_Elemental", 10, 3);
+        table.setValueAt("Magic_Elemental", 11, 3);
+        table.setValueAt("Firebird", 12, 3);
+        table.setValueAt("Phoenix", 13, 3);
+        table.setValueAt("Cove", 7, 4);
+        table.setValueAt("Sea_Witch", 8, 4);
+        table.setValueAt("Sorceress", 9, 4);
+        table.setValueAt("Nix", 10, 4);
+        table.setValueAt("Nix_Warrior", 11, 4);
+        table.setValueAt("Sea_Serpent", 12, 4);
+        table.setValueAt("Haspid", 13, 4);
+        table.setValueAt("Neutral", 0, 5);
+        table.setValueAt("Fangarm", 1, 5);
+        table.setValueAt("Enchanter", 2, 5);
+        table.setValueAt("Faerie_Dragon", 3, 5);
+        table.setValueAt("Rust_Dragon", 4, 5);
+        table.setValueAt("Crystal_Dragon", 5, 5);
+        table.setValueAt("Azure_Dragon", 6, 5);
+        
+        
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        selectionModel.addListSelectionListener(new ListSelectionListener() { //назначение иконки героя из списка
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                String name=(String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
+                try{
+                    Image repic5 = imageHandling("units\\" + name + ".jpg", 74, 70);
+                    lbl.setIcon(new ImageIcon(repic5));
+                }
+                catch(NullPointerException exc){}
+                }
+        });
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent arg0) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent arg0) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent arg0) {
+        }
+    
+    }
+    
+    //КОНЕЦ ВЫБОРА ГО
     
  
     //КНОПК
@@ -469,7 +614,7 @@ public class Proekt_new extends JFrame{
     
     
     public void initFrame() throws IOException{
-       setSize(1380,150);
+       setSize(1370,150);
         JPanel panel = new JPanel(){// Переопределение метода, чтобы поставить картинку на фон
             @Override
             public void paintComponent(Graphics page){
@@ -477,6 +622,7 @@ public class Proekt_new extends JFrame{
             BufferedImage img;
                 try {
                     img = ImageIO.read(new File(".\\Source\\test\\fon2.png"));
+                    //Image repicPanel = img.getScaledInstance(1380, 130, 100);
                     Image repicPanel = img.getScaledInstance(1380, 130, 100);
                     page.drawImage(repicPanel, 0, 0, null);
                 } catch (IOException ex) {
@@ -486,15 +632,39 @@ public class Proekt_new extends JFrame{
             }
         };
         JPanel panel2 = new JPanel(); 
+        JPanel panelGO1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // панель ГО
         JPanel panel4 = new JPanel(); // панель кнопок
         JPanel panel6 = new JPanel(); // текстовая панель
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setVisible(true);
     setTitle("Heroes HUD");
-    panel.setSize(1380, 150);
+    //panel.setSize(1380, 150);
+    panel.setSize(1360, 150);
     Color c1 = new Color(140,70,20);
     panel.setBackground(c1);
-    panel4.setPreferredSize(new Dimension(290,90));
+    
+    BufferedImage myPicture50 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
+    Image repic50 = myPicture50.getScaledInstance(74, 70, 70);
+    JLabel picLabel50 = new JLabel(new ImageIcon(repic50));
+    picLabel50.addMouseListener(new MyMouseListenerGO());
+    picLabel50.setBorder(new CompoundBorder( // sets two borders РАМКА
+    BorderFactory.createMatteBorder(0, 0, 0, 0, Color.BLACK), // outer border
+    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+    panel.add(picLabel50);
+    
+    JTextField Field222 = new JTextField(7);
+    Field222=textHandling(Field222);
+    Field222.setFont(new Font("Dialog", Font.PLAIN, 12));
+    Field222.setHorizontalAlignment(JTextField.CENTER);
+    
+    panelGO1.setPreferredSize(new Dimension(74, 90));
+    panelGO1.add(picLabel50);
+    panelGO1.add(Field222);
+    
+    //panel4.setPreferredSize(new Dimension(290,90));
+    panel4.setPreferredSize(new Dimension(200,90));
+    panelGO1.setOpaque(false);
+    panel.add(panelGO1);
     panel.add(panel4);
     panel4.setOpaque(false); //прозрачность
     //НАЧАЛЬНЫЕ КНОПК
@@ -562,15 +732,15 @@ public class Proekt_new extends JFrame{
     panel4.add(button3);
     panel4.add(button4);
     panel4.add(button5);
-    panel4.add(button11);
-    panel4.add(button12);
+    //panel4.add(button11);
+    //panel4.add(button12);
     panel4.add(button6);
     panel4.add(button7);
     panel4.add(button8);
     panel4.add(button9);
     panel4.add(button10);
-    panel4.add(button13);
-    panel4.add(button14);
+    //panel4.add(button13);
+    //panel4.add(button14);
     //КОНЕЦ КОНЕЧНЫХ КНОПОК
     
     //LABEL ГЕРОЯ
@@ -646,7 +816,8 @@ public class Proekt_new extends JFrame{
     
     //НАЧАЛО КНОПОК
     JPanel panel9 = new JPanel(); // панель кнопок
-    panel9.setPreferredSize(new Dimension(290,90));
+    //panel9.setPreferredSize(new Dimension(290,90));
+    panel9.setPreferredSize(new Dimension(200,90));
     panel.add(panel9);
     panel9.setOpaque(false);
     
@@ -684,16 +855,39 @@ public class Proekt_new extends JFrame{
     panel9.add(button3a);
     panel9.add(button4a);
     panel9.add(button5a);
-    panel9.add(button11a);
-    panel9.add(button12a);
+    //panel9.add(button11a);
+    //panel9.add(button12a);
     panel9.add(button6a);
     panel9.add(button7a);
     panel9.add(button8a);
     panel9.add(button9a);
     panel9.add(button10a);
-    panel9.add(button13a);
-    panel9.add(button14a);
+    //panel9.add(button13a);
+    //panel9.add(button14a);
     //КОНЕЦ КНОПОК
+    
+    JPanel panelGO2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // панель ГО
+    
+    BufferedImage myPicture60 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
+    Image repic60 = myPicture60.getScaledInstance(74, 70, 70);
+    JLabel picLabel60 = new JLabel(new ImageIcon(repic60));
+    picLabel60.addMouseListener(new MyMouseListenerGO());
+    picLabel60.setBorder(new CompoundBorder( // sets two borders РАМКА
+    BorderFactory.createMatteBorder(0, 0, 0, 0, Color.BLACK), // outer border
+    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+    panel.add(picLabel60);
+    
+    JTextField Field333 = new JTextField(7);
+    Field333=textHandling(Field333);
+    Field333.setFont(new Font("Dialog", Font.PLAIN, 12));
+    Field333.setHorizontalAlignment(JTextField.CENTER);
+    
+    panelGO2.setPreferredSize(new Dimension(74, 90));
+    panelGO2.add(picLabel60);
+    panelGO2.add(Field333);
+    
+    panelGO2.setOpaque(false);
+    panel.add(panelGO2);
     
     getContentPane().add(panel);
     getContentPane().add(panel2);
