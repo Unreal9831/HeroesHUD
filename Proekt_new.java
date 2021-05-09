@@ -74,12 +74,11 @@ public class Proekt_new extends JFrame{
         return butt;
     }
     
-    public JTextField textHandling(JTextField field){
-        Color c1 = new Color(140,70,20);
-        field.setFont(new Font("Dialog", Font.PLAIN, 24));
+    public JTextField textHandling(JTextField field, Color color){
+        field.setFont(new Font("Dialog", Font.PLAIN, 28));
         field.setOpaque(false);
         field.setBorder(new CompoundBorder( // sets two borders РАМКА
-        BorderFactory.createMatteBorder(2, 2, 2, 2, c1), // outer border
+        BorderFactory.createMatteBorder(2, 2, 2, 2, color), // outer border
         BorderFactory.createEmptyBorder(0, 0, 0, 0)));
         field.setForeground(Color.WHITE);
         return field;
@@ -126,61 +125,61 @@ public class Proekt_new extends JFrame{
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     if(0 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Castle.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Castle.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 0;
                     }
                     
                     if(1 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Rampart.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Rampart.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 1;
                     }
                     
                     if(2 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Tower.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Tower.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 2;
                     }
                     
                     if(3 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Inferno.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Inferno.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 3;
                     }
                     
                     if(4 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Necropolis.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Necropolis.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 4;
                     }
                     
                     if(5 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Dungeon.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Dungeon.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 5;
                     }
                     
                     if(6 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Stronghold.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Stronghold.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 6;
                     }
                     
                     if(7 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Fortress.gif", 90, 50);
+                Image repic1 = imageHandling("towns\\Fortress.gif", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 7;
                     }
                     
                     if(8 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Conflux.png", 90, 50);
+                Image repic1 = imageHandling("towns\\Conflux.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 8;
                     }
                     
                     if(9 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Cove.BMP", 90, 50);
+                Image repic1 = imageHandling("towns\\Cove.BMP", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 9;
                     }
@@ -427,7 +426,7 @@ public class Proekt_new extends JFrame{
             public void valueChanged(ListSelectionEvent e) {
                 String name=(String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
                 try{
-                    Image repic5 = imageHandling("heroes\\" + townName + "\\Hero_" + name + ".png", 80, 90);
+                    Image repic5 = imageHandling("heroes\\" + townName + "\\Hero_" + name + ".png", 80, 86);
                     lbl.setIcon(new ImageIcon(repic5));
                 }
                 catch(NullPointerException exc) {}
@@ -614,7 +613,7 @@ public class Proekt_new extends JFrame{
     
     
     public void initFrame() throws IOException{
-       setSize(1370,150);
+       setSize(1530,150);
         JPanel panel = new JPanel(){// Переопределение метода, чтобы поставить картинку на фон
             @Override
             public void paintComponent(Graphics page){
@@ -623,7 +622,7 @@ public class Proekt_new extends JFrame{
                 try {
                     img = ImageIO.read(new File(".\\Source\\test\\fon2.png"));
                     //Image repicPanel = img.getScaledInstance(1380, 130, 100);
-                    Image repicPanel = img.getScaledInstance(1380, 130, 100);
+                    Image repicPanel = img.getScaledInstance(1540, 130, 100);
                     page.drawImage(repicPanel, 0, 0, null);
                 } catch (IOException ex) {
 //                    Logger.getLogger(Proekt_new.class.getName()).log(Level.SEVERE, null, ex);
@@ -634,12 +633,12 @@ public class Proekt_new extends JFrame{
         JPanel panel2 = new JPanel(); 
         JPanel panelGO1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // панель ГО
         JPanel panel4 = new JPanel(); // панель кнопок
-        JPanel panel6 = new JPanel(); // текстовая панель
+        JPanel panel6 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // текстовая панель
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setVisible(true);
     setTitle("Heroes HUD");
-    //panel.setSize(1380, 150);
-    panel.setSize(1360, 150);
+    panel.setSize(1520, 150);
+    //panel.setSize(1360, 150);
     Color c1 = new Color(140,70,20);
     panel.setBackground(c1);
     
@@ -653,7 +652,7 @@ public class Proekt_new extends JFrame{
     panel.add(picLabel50);
     
     JTextField Field222 = new JTextField(7);
-    Field222=textHandling(Field222);
+    Field222=textHandling(Field222, Color.RED);
     Field222.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field222.setHorizontalAlignment(JTextField.CENTER);
     
@@ -661,12 +660,15 @@ public class Proekt_new extends JFrame{
     panelGO1.add(picLabel50);
     panelGO1.add(Field222);
     
-    //panel4.setPreferredSize(new Dimension(290,90));
-    panel4.setPreferredSize(new Dimension(200,90));
+    panel4.setPreferredSize(new Dimension(290,90));
+    //panel4.setPreferredSize(new Dimension(200,90));
     panelGO1.setOpaque(false);
     panel.add(panelGO1);
     panel.add(panel4);
     panel4.setOpaque(false); //прозрачность
+    panel4.setBorder(new CompoundBorder( // sets two borders РАМКА
+        BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED), // outer border
+        BorderFactory.createEmptyBorder(0, 0, 0, 0)));
     //НАЧАЛЬНЫЕ КНОПК
     BufferedImage myPicture1 = ImageIO.read(new File(".\\Source\\arts\\Resurrection1.png"));
     Image repic1 = myPicture1.getScaledInstance(40, 40, 40);
@@ -732,20 +734,20 @@ public class Proekt_new extends JFrame{
     panel4.add(button3);
     panel4.add(button4);
     panel4.add(button5);
-    //panel4.add(button11);
-    //panel4.add(button12);
+    panel4.add(button11);
+    panel4.add(button12);
     panel4.add(button6);
     panel4.add(button7);
     panel4.add(button8);
     panel4.add(button9);
     panel4.add(button10);
-    //panel4.add(button13);
-    //panel4.add(button14);
+    panel4.add(button13);
+    panel4.add(button14);
     //КОНЕЦ КОНЕЧНЫХ КНОПОК
     
     //LABEL ГЕРОЯ
     BufferedImage myPicture30 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic30 = myPicture30.getScaledInstance(80, 90, 70);
+    Image repic30 = myPicture30.getScaledInstance(80, 86, 70);
     JLabel picLabel3 = new JLabel(new ImageIcon(repic30));
     picLabel3.addMouseListener(new MyMouseListener1());
     picLabel3.setBorder(new CompoundBorder( // sets two borders РАМКА
@@ -756,7 +758,7 @@ public class Proekt_new extends JFrame{
     
     //LABEL ГОРОДА
     BufferedImage myPicture = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic = myPicture.getScaledInstance(90, 50, 100);
+    Image repic = myPicture.getScaledInstance(80, 86, 100);
     JLabel picLabel = new JLabel(new ImageIcon(repic));
     picLabel.addMouseListener(new MyMouseListener());
     picLabel.setBorder(new CompoundBorder( // sets two borders РАМКА
@@ -767,35 +769,51 @@ public class Proekt_new extends JFrame{
  
     //ТЕКСТОВЫЕ ПОЛЯ
     panel6.setOpaque(false);
-    panel6.setPreferredSize(new Dimension(350,90));
+    panel6.setPreferredSize(new Dimension(390, 90));
     panel.add(panel6);
     JTextField Field1 = new JTextField(7);
-    Field1=textHandling(Field1);
+    Field1=textHandling(Field1, Color.RED);
     panel6.add(Field1);
+    panel6.add(Box.createRigidArea(new Dimension(3, 20)));
     JTextField Field2 = new JTextField(2);
-    Field2=textHandling(Field2);
+    Field2=textHandling(Field2, Color.BLACK);
     Field2.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field2);
+    panel6.add(Box.createRigidArea(new Dimension(3, 20)));
     JTextField Field3 = new JTextField(7);
-    Field3=textHandling(Field3);
+    Field3=textHandling(Field3, Color.BLUE);
     Field3.setHorizontalAlignment(JTextField.RIGHT);
     panel6.add(Field3);
-    JTextField Field4 = new JTextField(4);
-    Field4=textHandling(Field4);
+    panel6.add(Box.createRigidArea(new Dimension(400, 6)));
+    JTextField Field4 = new JTextField(2);
+    Field4=textHandling(Field4, Color.RED);
+    Field4.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field4);
-    JTextField Field5 = new JTextField(8);
-    Field5=textHandling(Field5);
+    panel6.add(Box.createRigidArea(new Dimension(5, 20)));
+    JTextField Field5 = new JTextField(3);
+    Field5=textHandling(Field5, Color.RED);
     Field5.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field5);
-    JTextField Field6 = new JTextField(4);
-    Field6=textHandling(Field6);
-    Field6.setHorizontalAlignment(JTextField.RIGHT);
+    panel6.add(Box.createRigidArea(new Dimension(5, 20)));
+    JTextField Field6 = new JTextField(5);
+    Field6=textHandling(Field6, Color.BLACK);
+    Field6.setHorizontalAlignment(JTextField.CENTER);
     panel6.add(Field6);
+    panel6.add(Box.createRigidArea(new Dimension(5, 20)));
+    JTextField Field7 = new JTextField(3);
+    Field7=textHandling(Field7, Color.BLUE);
+    Field7.setHorizontalAlignment(JTextField.CENTER);
+    panel6.add(Field7);
+    panel6.add(Box.createRigidArea(new Dimension(5, 20)));
+    JTextField Field8 = new JTextField(2);
+    Field8=textHandling(Field8, Color.BLUE);
+    Field8.setHorizontalAlignment(JTextField.CENTER);
+    panel6.add(Field8);
     //ТЕКСТОВЫЕ ПОЛЯ КОНЕЦ
     
     //LABEL ГОРОДА
     BufferedImage myPicture0 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic0 = myPicture0.getScaledInstance(90, 50, 100);
+    Image repic0 = myPicture0.getScaledInstance(80, 86, 100);
     JLabel picLabel0 = new JLabel(new ImageIcon(repic0));
     picLabel0.addMouseListener(new MyMouseListener());
     picLabel0.setBorder(new CompoundBorder( // sets two borders РАМКА
@@ -805,7 +823,7 @@ public class Proekt_new extends JFrame{
     //LABEL ГОРОДА КОНЕЦ
     //LABEL ГЕРОЯ
     BufferedImage myPicture300 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic300 = myPicture300.getScaledInstance(80, 90, 70);
+    Image repic300 = myPicture300.getScaledInstance(80, 86, 70);
     JLabel picLabel30 = new JLabel(new ImageIcon(repic300));
     picLabel30.addMouseListener(new MyMouseListener1());
     picLabel30.setBorder(new CompoundBorder( // sets two borders РАМКА
@@ -816,10 +834,13 @@ public class Proekt_new extends JFrame{
     
     //НАЧАЛО КНОПОК
     JPanel panel9 = new JPanel(); // панель кнопок
-    //panel9.setPreferredSize(new Dimension(290,90));
-    panel9.setPreferredSize(new Dimension(200,90));
+    panel9.setPreferredSize(new Dimension(290,90));
+    //panel9.setPreferredSize(new Dimension(200,90));
     panel.add(panel9);
     panel9.setOpaque(false);
+    panel9.setBorder(new CompoundBorder( // sets two borders РАМКА
+        BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLUE), // outer border
+        BorderFactory.createEmptyBorder(0, 0, 0, 0)));
     
     JButton button1a = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
     button1a=buttonHandling(button1a, repic1);
@@ -855,15 +876,15 @@ public class Proekt_new extends JFrame{
     panel9.add(button3a);
     panel9.add(button4a);
     panel9.add(button5a);
-    //panel9.add(button11a);
-    //panel9.add(button12a);
+    panel9.add(button11a);
+    panel9.add(button12a);
     panel9.add(button6a);
     panel9.add(button7a);
     panel9.add(button8a);
     panel9.add(button9a);
     panel9.add(button10a);
-    //panel9.add(button13a);
-    //panel9.add(button14a);
+    panel9.add(button13a);
+    panel9.add(button14a);
     //КОНЕЦ КНОПОК
     
     JPanel panelGO2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // панель ГО
@@ -878,7 +899,7 @@ public class Proekt_new extends JFrame{
     panel.add(picLabel60);
     
     JTextField Field333 = new JTextField(7);
-    Field333=textHandling(Field333);
+    Field333=textHandling(Field333, Color.BLUE);
     Field333.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field333.setHorizontalAlignment(JTextField.CENTER);
     
