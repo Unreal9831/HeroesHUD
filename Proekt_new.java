@@ -125,61 +125,61 @@ public class Proekt_new extends JFrame{
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
                     if(0 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Castle.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Castle.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 0;
                     }
                     
                     if(1 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Rampart.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Rampart.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 1;
                     }
                     
                     if(2 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Tower.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Tower.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 2;
                     }
                     
                     if(3 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Inferno.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Inferno.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 3;
                     }
                     
                     if(4 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Necropolis.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Necropolis.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 4;
                     }
                     
                     if(5 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Dungeon.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Dungeon.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 5;
                     }
                     
                     if(6 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Stronghold.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Stronghold.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 6;
                     }
                     
                     if(7 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Fortress.gif", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Fortress.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 7;
                     }
                     
                     if(8 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Conflux.png", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Conflux.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 8;
                     }
                     
                     if(9 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns\\Cove.BMP", 80, 86);
+                Image repic1 = imageHandling("towns_new\\Cove.png", 80, 86);
                 lbl.setIcon(new ImageIcon(repic1));
                 townNumber = 9;
                     }
@@ -565,7 +565,7 @@ public class Proekt_new extends JFrame{
             public void valueChanged(ListSelectionEvent e) {
                 String name=(String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
                 try{
-                    Image repic5 = imageHandling("units\\" + name + ".jpg", 74, 70);
+                    Image repic5 = imageHandling("units\\" + name + ".jpg", 60, 64);
                     lbl.setIcon(new ImageIcon(repic5));
                 }
                 catch(NullPointerException exc){}
@@ -613,7 +613,7 @@ public class Proekt_new extends JFrame{
     
     
     public void initFrame() throws IOException{
-       setSize(1530,150);
+       setSize(1510, 150);
         JPanel panel = new JPanel(){// Переопределение метода, чтобы поставить картинку на фон
             @Override
             public void paintComponent(Graphics page){
@@ -622,7 +622,7 @@ public class Proekt_new extends JFrame{
                 try {
                     img = ImageIO.read(new File(".\\Source\\test\\fon2.png"));
                     //Image repicPanel = img.getScaledInstance(1380, 130, 100);
-                    Image repicPanel = img.getScaledInstance(1540, 130, 100);
+                    Image repicPanel = img.getScaledInstance(1520, 130, 100);
                     page.drawImage(repicPanel, 0, 0, null);
                 } catch (IOException ex) {
 //                    Logger.getLogger(Proekt_new.class.getName()).log(Level.SEVERE, null, ex);
@@ -637,27 +637,28 @@ public class Proekt_new extends JFrame{
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setVisible(true);
     setTitle("Heroes HUD");
-    panel.setSize(1520, 150);
+    panel.setSize(1500, 150);
     //panel.setSize(1360, 150);
     Color c1 = new Color(140,70,20);
     panel.setBackground(c1);
     
     BufferedImage myPicture50 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic50 = myPicture50.getScaledInstance(74, 70, 70);
+    Image repic50 = myPicture50.getScaledInstance(60, 64, 70);
     JLabel picLabel50 = new JLabel(new ImageIcon(repic50));
     picLabel50.addMouseListener(new MyMouseListenerGO());
     picLabel50.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(0, 0, 0, 0, Color.BLACK), // outer border
+    BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED), // outer border
     BorderFactory.createEmptyBorder(0, 0, 0, 0)));
     panel.add(picLabel50);
     
-    JTextField Field222 = new JTextField(7);
+    JTextField Field222 = new JTextField(6);
     Field222=textHandling(Field222, Color.RED);
     Field222.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field222.setHorizontalAlignment(JTextField.CENTER);
     
-    panelGO1.setPreferredSize(new Dimension(74, 90));
+    panelGO1.setPreferredSize(new Dimension(66, 90));
     panelGO1.add(picLabel50);
+    panelGO1.add(Box.createRigidArea(new Dimension(60, 2)));
     panelGO1.add(Field222);
     
     panel4.setPreferredSize(new Dimension(290,90));
@@ -690,57 +691,57 @@ public class Proekt_new extends JFrame{
     Image repic9 = myPicture9.getScaledInstance(40, 40, 40);
     BufferedImage myPicture10 = ImageIO.read(new File(".\\Source\\arts\\Fire_book1.png"));
     Image repic10 = myPicture10.getScaledInstance(40, 40, 40);
-    BufferedImage myPicture11 = ImageIO.read(new File(".\\Source\\arts\\Alliance1.png"));
+    BufferedImage myPicture11 = ImageIO.read(new File(".\\Source\\arts\\Water_book1.png"));
     Image repic11 = myPicture11.getScaledInstance(40, 40, 40);
     BufferedImage myPicture12 = ImageIO.read(new File(".\\Source\\arts\\AotD1.png"));
     Image repic12 = myPicture12.getScaledInstance(40, 40, 40);
     BufferedImage myPicture13 = ImageIO.read(new File(".\\Source\\arts\\Shackles1.png"));
     Image repic13 = myPicture13.getScaledInstance(40, 40, 40);
-    BufferedImage myPicture14 = ImageIO.read(new File(".\\Source\\arts\\Ogre_Fist1.png"));
+    BufferedImage myPicture14 = ImageIO.read(new File(".\\Source\\arts\\Alliance1.png"));
     Image repic14 = myPicture14.getScaledInstance(40, 40, 40);
     //КОНЕЦ НАЧАЛЬНЫХ КНОПОК
     //НАЧАЛО КОНЕЧНЫХ КНОПОК
-    JButton button1 = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
-    button1=buttonHandling(button1, repic1);
-    JButton button2 = new JButton(new SimpleAction("DD", "DD1"));
-    button2=buttonHandling(button2, repic2);
+    JButton button1 = new JButton(new SimpleAction("Alliance", "Alliance1"));
+    button1=buttonHandling(button1, repic14);
+    JButton button2 = new JButton(new SimpleAction("AotD", "AotD1"));
+    button2=buttonHandling(button2, repic12);
     JButton button3 = new JButton(new SimpleAction("Armageddon", "Armageddon1"));
     button3=buttonHandling(button3, repic3);
     JButton button4 = new JButton(new SimpleAction("Fly", "Fly1"));
     button4=buttonHandling(button4, repic4);
-    JButton button5 = new JButton(new SimpleAction("TP", "TP1"));
-    button5=buttonHandling(button5, repic5);
-    JButton button6 = new JButton(new SimpleAction("Wings", "Wings1"));
-    button6=buttonHandling(button6, repic6);
-    JButton button7 = new JButton(new SimpleAction("Hat", "Hat1"));
-    button7=buttonHandling(button7, repic7);
-    JButton button8 = new JButton(new SimpleAction("Air_book", "Air_book1"));
-    button8=buttonHandling(button8, repic8);
-    JButton button9 = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
-    button9=buttonHandling(button9, repic9);
-    JButton button10 = new JButton(new SimpleAction("Fire_book", "Fire_book1"));
-    button10=buttonHandling(button10, repic10);
-    JButton button11 = new JButton(new SimpleAction("Alliance", "Alliance1"));
+    JButton button5 = new JButton(new SimpleAction("DD", "DD1"));
+    button5=buttonHandling(button5, repic2);
+    JButton button6 = new JButton(new SimpleAction("TP", "TP1"));
+    button6=buttonHandling(button6, repic5);
+    JButton button7 = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
+    button7=buttonHandling(button7, repic1);
+    JButton button8 = new JButton(new SimpleAction("Shackles", "Shackles1"));
+    button8=buttonHandling(button8, repic13);
+    JButton button9 = new JButton(new SimpleAction("Wings", "Wings1"));
+    button9=buttonHandling(button9, repic6);
+    JButton button10 = new JButton(new SimpleAction("Hat", "Hat1"));
+    button10=buttonHandling(button10, repic7);
+    JButton button11 = new JButton(new SimpleAction("Water_book", "Water_book1"));
     button11=buttonHandling(button11, repic11);
-    JButton button12 = new JButton(new SimpleAction("AotD", "AotD1"));
-    button12=buttonHandling(button12, repic12);
-    JButton button13 = new JButton(new SimpleAction("Shackles", "Shackles1"));
-    button13=buttonHandling(button13, repic13);
-    JButton button14 = new JButton(new SimpleAction("Ogre_Fist", "Ogre_Fist1"));
-    button14=buttonHandling(button14, repic14);
+    JButton button12 = new JButton(new SimpleAction("Fire_book", "Fire_book1"));
+    button12=buttonHandling(button12, repic10);
+    JButton button13 = new JButton(new SimpleAction("Air_book", "Air_book1"));
+    button13=buttonHandling(button13, repic8);
+    JButton button14 = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
+    button14=buttonHandling(button14, repic9);
     
     panel4.add(button1);
     panel4.add(button2);
     panel4.add(button3);
     panel4.add(button4);
     panel4.add(button5);
-    panel4.add(button11);
-    panel4.add(button12);
     panel4.add(button6);
     panel4.add(button7);
     panel4.add(button8);
     panel4.add(button9);
     panel4.add(button10);
+    panel4.add(button11);
+    panel4.add(button12);
     panel4.add(button13);
     panel4.add(button14);
     //КОНЕЦ КОНЕЧНЫХ КНОПОК
@@ -844,45 +845,45 @@ public class Proekt_new extends JFrame{
     
     JButton button1a = new JButton(new SimpleAction("Resurrection", "Resurrection1"));
     button1a=buttonHandling(button1a, repic1);
-    JButton button2a = new JButton(new SimpleAction("DD", "DD1"));
-    button2a=buttonHandling(button2a, repic2);
-    JButton button3a = new JButton(new SimpleAction("Armageddon", "Armageddon1"));
-    button3a=buttonHandling(button3a, repic3);
+    JButton button2a = new JButton(new SimpleAction("TP", "TP1"));
+    button2a=buttonHandling(button2a, repic5);
+    JButton button3a = new JButton(new SimpleAction("DD", "DD1"));
+    button3a=buttonHandling(button3a, repic2);
     JButton button4a = new JButton(new SimpleAction("Fly", "Fly1"));
     button4a=buttonHandling(button4a, repic4);
-    JButton button5a = new JButton(new SimpleAction("TP", "TP1"));
-    button5a=buttonHandling(button5a, repic5);
-    JButton button6a = new JButton(new SimpleAction("Wings", "Wings1"));
-    button6a=buttonHandling(button6a, repic6);
-    JButton button7a = new JButton(new SimpleAction("Hat", "Hat1"));
-    button7a=buttonHandling(button7a, repic7);
-    JButton button8a = new JButton(new SimpleAction("Air_book", "Air_book1"));
-    button8a=buttonHandling(button8a, repic8);
-    JButton button9a = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
-    button9a=buttonHandling(button9a, repic9);
+    JButton button5a = new JButton(new SimpleAction("Armageddon", "Armageddon1"));
+    button5a=buttonHandling(button5a, repic3);
+    JButton button6a = new JButton(new SimpleAction("AotD", "AotD1"));
+    button6a=buttonHandling(button6a, repic12);
+    JButton button7a = new JButton(new SimpleAction("Alliance", "Alliance1"));
+    button7a=buttonHandling(button7a, repic14);
+    JButton button8a = new JButton(new SimpleAction("Earth_book", "Earth_book1"));
+    button8a=buttonHandling(button8a, repic9);
+    JButton button9a = new JButton(new SimpleAction("Air_book", "Air_book1"));
+    button9a=buttonHandling(button9a, repic8);
     JButton button10a = new JButton(new SimpleAction("Fire_book", "Fire_book1"));
     button10a=buttonHandling(button10a, repic10);
-    JButton button11a = new JButton(new SimpleAction("Alliance", "Alliance1"));
+    JButton button11a = new JButton(new SimpleAction("Water_book", "Water_book1"));
     button11a=buttonHandling(button11a, repic11);
-    JButton button12a = new JButton(new SimpleAction("AotD", "AotD1"));
-    button12a=buttonHandling(button12a, repic12);
-    JButton button13a = new JButton(new SimpleAction("Shackles", "Shackles1"));
-    button13a=buttonHandling(button13a, repic13);
-    JButton button14a = new JButton(new SimpleAction("Ogre_Fist", "Ogre_Fist1"));
-    button14a=buttonHandling(button14a, repic14);
+    JButton button12a = new JButton(new SimpleAction("Hat", "Hat1"));
+    button12a=buttonHandling(button12a, repic7);
+    JButton button13a = new JButton(new SimpleAction("Wings", "Wings1"));
+    button13a=buttonHandling(button13a, repic6);
+    JButton button14a = new JButton(new SimpleAction("Shackles", "Shackles1"));
+    button14a=buttonHandling(button14a, repic13);
     
     panel9.add(button1a);
     panel9.add(button2a);
     panel9.add(button3a);
     panel9.add(button4a);
     panel9.add(button5a);
-    panel9.add(button11a);
-    panel9.add(button12a);
     panel9.add(button6a);
     panel9.add(button7a);
     panel9.add(button8a);
     panel9.add(button9a);
     panel9.add(button10a);
+    panel9.add(button11a);
+    panel9.add(button12a);
     panel9.add(button13a);
     panel9.add(button14a);
     //КОНЕЦ КНОПОК
@@ -890,21 +891,22 @@ public class Proekt_new extends JFrame{
     JPanel panelGO2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // панель ГО
     
     BufferedImage myPicture60 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic60 = myPicture60.getScaledInstance(74, 70, 70);
+    Image repic60 = myPicture60.getScaledInstance(60, 64, 70);
     JLabel picLabel60 = new JLabel(new ImageIcon(repic60));
     picLabel60.addMouseListener(new MyMouseListenerGO());
     picLabel60.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(0, 0, 0, 0, Color.BLACK), // outer border
+    BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLUE), // outer border
     BorderFactory.createEmptyBorder(0, 0, 0, 0)));
     panel.add(picLabel60);
     
-    JTextField Field333 = new JTextField(7);
+    JTextField Field333 = new JTextField(6);
     Field333=textHandling(Field333, Color.BLUE);
     Field333.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field333.setHorizontalAlignment(JTextField.CENTER);
     
-    panelGO2.setPreferredSize(new Dimension(74, 90));
+    panelGO2.setPreferredSize(new Dimension(66, 90));
     panelGO2.add(picLabel60);
+    panelGO2.add(Box.createRigidArea(new Dimension(60, 2)));
     panelGO2.add(Field333);
     
     panelGO2.setOpaque(false);
