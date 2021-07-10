@@ -12,8 +12,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
@@ -454,6 +459,14 @@ public class Proekt_new extends JFrame{
     //ВЫБОР ГО
     
     class MyMouseListenerGO implements MouseListener{
+        
+        private JTextField jTextField;
+        private Map<String, String> unitValues = new HashMap<>();
+        
+        public MyMouseListenerGO(JTextField jTextField) throws FileNotFoundException, IOException {
+            this.jTextField = jTextField;
+            fillUnitValues();
+        }
 
         @Override
         public void mouseClicked(MouseEvent arg0) {
@@ -567,6 +580,7 @@ public class Proekt_new extends JFrame{
                 try{
                     Image repic5 = imageHandling("units\\" + name + ".jpg", 66, 64);
                     lbl.setIcon(new ImageIcon(repic5));
+                    jTextField.setText(unitValues.get(name));
                 }
                 catch(NullPointerException exc){}
                 }
@@ -583,6 +597,20 @@ public class Proekt_new extends JFrame{
 
         @Override
         public void mouseExited(MouseEvent arg0) {
+        }
+        
+        private void fillUnitValues() throws FileNotFoundException, IOException {
+            
+        BufferedReader br = new BufferedReader(new FileReader(".\\Source\\unitValues.csv"));
+        String line = null;
+        while((line = br.readLine()) != null){
+             String[] splittedLine = line.split(",");
+             if (splittedLine.length == 2) {
+                 unitValues.put(splittedLine[0], splittedLine[1]);
+             }
+        }
+        br.close();
+        
         }
     
     }
@@ -642,19 +670,19 @@ public class Proekt_new extends JFrame{
     Color c1 = new Color(140,70,20);
     panel.setBackground(c1);
     
-    BufferedImage myPicture50 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic50 = myPicture50.getScaledInstance(66, 64, 70);
-    JLabel picLabel50 = new JLabel(new ImageIcon(repic50));
-    picLabel50.addMouseListener(new MyMouseListenerGO());
-    picLabel50.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    panel.add(picLabel50);
-    
     JTextField Field222 = new JTextField(6);
     Field222=textHandling(Field222, Color.RED);
     Field222.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field222.setHorizontalAlignment(JTextField.CENTER);
+    
+    BufferedImage myPicture50 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
+    Image repic50 = myPicture50.getScaledInstance(66, 64, 70);
+    JLabel picLabel50 = new JLabel(new ImageIcon(repic50));
+    picLabel50.addMouseListener(new MyMouseListenerGO(Field222));
+    picLabel50.setBorder(new CompoundBorder( // sets two borders РАМКА
+    BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED), // outer border
+    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+    panel.add(picLabel50);
     
     panelGO1.setPreferredSize(new Dimension(70, 90));
     panelGO1.add(picLabel50);
@@ -890,19 +918,19 @@ public class Proekt_new extends JFrame{
     
     JPanel panelGO2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // панель ГО
     
-    BufferedImage myPicture60 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic60 = myPicture60.getScaledInstance(66, 64, 70);
-    JLabel picLabel60 = new JLabel(new ImageIcon(repic60));
-    picLabel60.addMouseListener(new MyMouseListenerGO());
-    picLabel60.setBorder(new CompoundBorder( // sets two borders РАМКА
-    BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLUE), // outer border
-    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-    panel.add(picLabel60);
-    
     JTextField Field333 = new JTextField(6);
     Field333=textHandling(Field333, Color.BLUE);
     Field333.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field333.setHorizontalAlignment(JTextField.CENTER);
+    
+    BufferedImage myPicture60 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
+    Image repic60 = myPicture60.getScaledInstance(66, 64, 70);
+    JLabel picLabel60 = new JLabel(new ImageIcon(repic60));
+    picLabel60.addMouseListener(new MyMouseListenerGO(Field333));
+    picLabel60.setBorder(new CompoundBorder( // sets two borders РАМКА
+    BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLUE), // outer border
+    BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+    panel.add(picLabel60);
     
     panelGO2.setPreferredSize(new Dimension(70, 90));
     panelGO2.add(picLabel60);
