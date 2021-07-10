@@ -565,7 +565,7 @@ public class Proekt_new extends JFrame{
             public void valueChanged(ListSelectionEvent e) {
                 String name=(String) table.getValueAt(table.getSelectedRow(), table.getSelectedColumn());
                 try{
-                    Image repic5 = imageHandling("units\\" + name + ".jpg", 60, 64);
+                    Image repic5 = imageHandling("units\\" + name + ".jpg", 66, 64);
                     lbl.setIcon(new ImageIcon(repic5));
                 }
                 catch(NullPointerException exc){}
@@ -613,16 +613,16 @@ public class Proekt_new extends JFrame{
     
     
     public void initFrame() throws IOException{
-       setSize(1510, 150);
-        JPanel panel = new JPanel(){// Переопределение метода, чтобы поставить картинку на фон
+       setSize(1545, 150);
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 4, 10)){// Переопределение метода, чтобы поставить картинку на фон
             @Override
             public void paintComponent(Graphics page){
             super.paintComponent(page);
             BufferedImage img;
                 try {
-                    img = ImageIO.read(new File(".\\Source\\test\\fon2.png"));
+                    img = ImageIO.read(new File(".\\Source\\test\\fon3.png"));
                     //Image repicPanel = img.getScaledInstance(1380, 130, 100);
-                    Image repicPanel = img.getScaledInstance(1520, 130, 100);
+                    Image repicPanel = img.getScaledInstance(1530, 110, 100);
                     page.drawImage(repicPanel, 0, 0, null);
                 } catch (IOException ex) {
 //                    Logger.getLogger(Proekt_new.class.getName()).log(Level.SEVERE, null, ex);
@@ -637,13 +637,13 @@ public class Proekt_new extends JFrame{
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     setVisible(true);
     setTitle("Heroes HUD");
-    panel.setSize(1500, 150);
+    panel.setSize(1530, 110);
     //panel.setSize(1360, 150);
     Color c1 = new Color(140,70,20);
     panel.setBackground(c1);
     
     BufferedImage myPicture50 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic50 = myPicture50.getScaledInstance(60, 64, 70);
+    Image repic50 = myPicture50.getScaledInstance(66, 64, 70);
     JLabel picLabel50 = new JLabel(new ImageIcon(repic50));
     picLabel50.addMouseListener(new MyMouseListenerGO());
     picLabel50.setBorder(new CompoundBorder( // sets two borders РАМКА
@@ -656,7 +656,7 @@ public class Proekt_new extends JFrame{
     Field222.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field222.setHorizontalAlignment(JTextField.CENTER);
     
-    panelGO1.setPreferredSize(new Dimension(66, 90));
+    panelGO1.setPreferredSize(new Dimension(70, 90));
     panelGO1.add(picLabel50);
     panelGO1.add(Box.createRigidArea(new Dimension(60, 2)));
     panelGO1.add(Field222);
@@ -770,7 +770,7 @@ public class Proekt_new extends JFrame{
  
     //ТЕКСТОВЫЕ ПОЛЯ
     panel6.setOpaque(false);
-    panel6.setPreferredSize(new Dimension(390, 90));
+    panel6.setPreferredSize(new Dimension(410, 90));
     panel.add(panel6);
     JTextField Field1 = new JTextField(7);
     Field1=textHandling(Field1, Color.RED);
@@ -891,7 +891,7 @@ public class Proekt_new extends JFrame{
     JPanel panelGO2 = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // панель ГО
     
     BufferedImage myPicture60 = ImageIO.read(new File(".\\Source\\test\\Random.bmp"));
-    Image repic60 = myPicture60.getScaledInstance(60, 64, 70);
+    Image repic60 = myPicture60.getScaledInstance(66, 64, 70);
     JLabel picLabel60 = new JLabel(new ImageIcon(repic60));
     picLabel60.addMouseListener(new MyMouseListenerGO());
     picLabel60.setBorder(new CompoundBorder( // sets two borders РАМКА
@@ -904,7 +904,7 @@ public class Proekt_new extends JFrame{
     Field333.setFont(new Font("Dialog", Font.PLAIN, 12));
     Field333.setHorizontalAlignment(JTextField.CENTER);
     
-    panelGO2.setPreferredSize(new Dimension(66, 90));
+    panelGO2.setPreferredSize(new Dimension(70, 90));
     panelGO2.add(picLabel60);
     panelGO2.add(Box.createRigidArea(new Dimension(60, 2)));
     panelGO2.add(Field333);
