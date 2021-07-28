@@ -91,6 +91,12 @@ public class Proekt_new extends JFrame{
 
        
     class MyMouseListener implements MouseListener{
+        
+        private Map<Integer, String> townImages = new HashMap<>();
+        
+        public MyMouseListener() {
+            fillTownImages();
+        }
 
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -129,67 +135,9 @@ public class Proekt_new extends JFrame{
         selectionModel.addListSelectionListener(new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent e) {
-                    if(0 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Castle.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 0;
-                    }
-                    
-                    if(1 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Rampart.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 1;
-                    }
-                    
-                    if(2 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Tower.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 2;
-                    }
-                    
-                    if(3 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Inferno.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 3;
-                    }
-                    
-                    if(4 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Necropolis.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 4;
-                    }
-                    
-                    if(5 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Dungeon.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 5;
-                    }
-                    
-                    if(6 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Stronghold.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 6;
-                    }
-                    
-                    if(7 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Fortress.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 7;
-                    }
-                    
-                    if(8 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Conflux.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 8;
-                    }
-                    
-                    if(9 == table.getSelectedRow()){
-                Image repic1 = imageHandling("towns_new\\Cove.png", 80, 86);
-                lbl.setIcon(new ImageIcon(repic1));
-                townNumber = 9;
-                    }
-                    
-                    
+                    townNumber = table.getSelectedRow();
+                    Image repic1 = imageHandling("towns_new\\" + townImages.get(townNumber) + ".png", 80, 86);
+                    lbl.setIcon(new ImageIcon(repic1));
                 }
         
 });
@@ -211,6 +159,19 @@ public class Proekt_new extends JFrame{
         @Override
         public void mouseExited(MouseEvent e) {
           //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        
+        private void fillTownImages() {
+            townImages.put(0, "Castle");
+            townImages.put(1, "Rampart");
+            townImages.put(2, "Tower");
+            townImages.put(3, "Inferno");
+            townImages.put(4, "Necropolis");
+            townImages.put(5, "Dungeon");
+            townImages.put(6, "Stronghold");
+            townImages.put(7, "Fortress");
+            townImages.put(8, "Conflux");
+            townImages.put(9, "Cove");
         }
     
     }
